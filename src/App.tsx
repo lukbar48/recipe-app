@@ -1,10 +1,11 @@
 import React from 'react';
+import styled from 'styled-components'
 
 function App() {
   return (
-    <div className="App">
+    <Container>
       <h1>Search recipe app</h1>
-    </div>
+    </Container>
   );
 }
 
