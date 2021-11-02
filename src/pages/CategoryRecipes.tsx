@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
-import { ICategories, IRecipes } from '../interfaces';
+import { IRecipes } from '../interfaces';
 import RecipeBox from '../components/RecipeBox';
 import {
   CategoryContainer,
@@ -19,14 +18,13 @@ const CategoryRecipes = (): JSX.Element => {
           `https://www.themealdb.com/api/json/v1/1/filter.php?c=${id}`
         );
         const data = await result.json();
-        console.log(data.meals);
         setRecipes(data.meals);
       } catch (error) {
         console.log(error);
       }
     };
     fetchRecipes();
-  }, []);
+  }, [id]);
 
   return (
     <>
