@@ -1,51 +1,65 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  position: relative;
   width: 100%;
-  height: 50px;
+  height: 65px;
   display: flex;
   align-items: center;
-  background-color: grey;
-`
+  justify-content: space-around;
+  background-color: white;
+  padding: 0 60px;
+  box-shadow: 0 2px 6px 0 rgb(0 0 0 / 15%)
+`;
 
 export const Logo = styled.img`
   height: 50px;
-`
+`;
 
 export const Form = styled.form`
-  background-color: #4654e1;
-  width: 300px;
-  height: 44px;
+  background-color: white;
+  width: 400px;
+  height: 38px;
   border-radius: 5px;
+  border: 1px grey solid;
   display: flex;
   flex-direction: row;
   align-items: center;
-  
+  margin-left: auto;
+
   input {
-    all: unset;
-    color: #fff;
+    color: grey;
     height: 100%;
     width: 100%;
     padding: 6px 10px;
+    border: none;
+    font-size: 1rem;
+    border-radius: 5px;
   }
-  
+
   input::placeholder {
     color: grey;
-    opacity: 0.7; 
+    opacity: 0.7;
   }
+
   button {
-    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
     cursor: pointer;
-    width: 44px;
-    height: 44px;
-    
-    
-    svg {
-      color: #fff;
-      fill: currentColor;
-      width: 24px;
-      height: 24px;
-      padding: 10px;
-     }
+    width: 45px;
+    height: 100%;
+    border: none;
+    border-radius: 0 5px 5px 0;
+
+    &:hover {
+      background-color: orange;
+      color: white;
+    }
+
+    .buttonIcon {
+      font-size: 30px;
+    }
   }
-`
+`;
