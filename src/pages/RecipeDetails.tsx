@@ -1,19 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Container, Wrapper, ImageContainer, ListContainer } from '../components/styles/RecipeDetails.styled';
+import {
+  Container,
+  Wrapper,
+  ImageContainer,
+  ListContainer,
+} from '../components/styles/RecipeDetails.styled';
+import { IRecipe, IIngredients } from '../interfaces';
 
-interface IRecipe {
-  strMeal: string;
-  strMealThumb: string;
-  strInstructions: string;
-  [key: `strIngredient${number}`]: string;
-  [key: `strMeasure${number}`]: string;
-}
-
-interface IIngredients {
-  ingredient: string | number;
-  measure: string;
-}
 const RecipeDetails = () => {
   const [recipe, setRecipe] = useState<IRecipe>({} as IRecipe);
   const [ingredients, setIngredients] = useState<IIngredients[]>([]);
@@ -60,10 +54,10 @@ const RecipeDetails = () => {
           <img src={strMealThumb} alt={strMeal} />
         </ImageContainer>
         <ListContainer>
-          {ingredients.map((item) => {
+          {ingredients.map((item, index) => {
             const { ingredient, measure } = item;
             return (
-              <li>
+              <li key={index}>
                 {ingredient} - {measure}
               </li>
             );

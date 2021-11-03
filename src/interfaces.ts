@@ -10,3 +10,16 @@ export interface IRecipes {
   strMeal: string;
   idMeal: string;
 }
+
+export interface IRecipe {
+  strMeal: string;
+  strMealThumb: string;
+  strInstructions: string;
+  [key: `strIngredient${number}`]: string;
+  [key: `strMeasure${number}`]: string;
+}
+
+export interface IIngredients {
+  ingredient: string | number;
+  measure: string;
+}

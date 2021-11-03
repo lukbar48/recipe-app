@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './components/styles/Global';
@@ -7,6 +7,7 @@ import NavBar from './components/NavBar';
 import CategorySlider from './pages/CategorySlider';
 import CategoryRecipes from './pages/CategoryRecipes';
 import RecipeDetails from './pages/RecipeDetails';
+import Search from './pages/Search';
 
 const theme = {
   colors: {
@@ -18,19 +19,32 @@ const theme = {
 };
 
 function App() {
+  const [recipeSearch, setRecipeSearch] = useState('');
+
+  useEffect(() => {
+    console.log(recipeSearch);
+  }, [recipeSearch]);
+
   return (
     <Router>
       <ThemeProvider theme={theme}>
         <GlobalStyles />
-          <NavBar />
-          <Switch>
-            <Container>
+        <NavBar setRecipeSearch={setRecipeSearch} />
+        <Switch>
+          <Container>
             <Route exact path="/" component={CategorySlider} />
             <Route exact path="/categories/:id" component={CategoryRecipes} />
             <Route exact path="/recipe/:id" component={RecipeDetails} />
-            <Route exact path="/categories/recipe/:id" component={RecipeDetails} />
-            </Container>
-          </Switch>
+            <Route
+              exact
+              path="/categories/recipe/:id"
+              component={RecipeDetails}
+            />
+            <Route path="/search">
+              <Search recipeSearch={recipeSearch} />
+            </Route>
+          </Container>
+        </Switch>
       </ThemeProvider>
     </Router>
   );
