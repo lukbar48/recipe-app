@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyles from './components/styles/Global';
 import { Container } from './components/styles/Container.styled';
@@ -20,10 +20,6 @@ const theme = {
 
 function App() {
   const [recipeSearch, setRecipeSearch] = useState('');
-
-  useEffect(() => {
-    console.log(recipeSearch);
-  }, [recipeSearch]);
 
   return (
     <Router>

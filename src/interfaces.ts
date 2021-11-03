@@ -23,3 +23,7 @@ export interface IIngredients {
   ingredient: string | number;
   measure: string;
 }
+
+export interface INavBar {
+  setRecipeSearch: React.Dispatch<React.SetStateAction<string>>;
+}
