@@ -28,7 +28,7 @@ export const ImageContainer = styled.div`
   width: 48%;
   position: relative;
   margin: 15px 0;
-
+ 
   img {
     height: 100%;
     width: 100%;
@@ -38,6 +38,10 @@ export const ImageContainer = styled.div`
     object-fit: contain;
     object-position: center;
   }
+
+  @media (max-width: ${({theme}) => theme.size.tablet}) {
+    width: 100%;
+  };
 `;
 
 export const ListContainer = styled.ul`
@@ -49,4 +53,8 @@ export const ListContainer = styled.ul`
     border-bottom: 1px solid #DADADA;
     margin: 2px 0;
   }
+
+  @media (max-width: ${({theme}) => theme.size.tablet}) {
+    width: 100%;
+  };
 `;

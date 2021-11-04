@@ -5,7 +5,6 @@ export const Container = styled.div`
   max-width: 100%;
   padding: 0 20px;
   margin: 0 auto;
-
 `;
 
 export const SliderContainer = styled.div`
@@ -33,15 +32,22 @@ export const CategoryContainer = styled.div`
     margin: 40px 0 20px;
     font-size: 3rem;
   }
-  @media (max-width: ${({theme}) => theme.size.tablet}) {
+  @media (max-width: ${({ theme }) => theme.size.tablet}) {
     h1 {
       font-size: 2.3rem;
     }
-  };
+  } ;
 `;
 
 export const CategoryItemsContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+
+  @media (max-width: 920px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 `;
