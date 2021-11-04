@@ -9,6 +9,7 @@ export interface IRecipes {
   strMealThumb: string;
   strMeal: string;
   idMeal: string;
+  strArea: string;
 }
 
 export interface IRecipe {

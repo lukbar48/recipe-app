@@ -20,7 +20,7 @@ export const SliderContainer = styled.div`
   }
 `;
 
-export const CategoryContainer = styled.div`
+export const RecipesContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,7 +39,7 @@ export const CategoryContainer = styled.div`
   } ;
 `;
 
-export const CategoryItemsContainer = styled.div`
+export const RecipesItemsContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: center;
