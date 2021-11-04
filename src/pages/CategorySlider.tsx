@@ -1,23 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import Slider from 'react-slick';
-import styled from 'styled-components';
+import { useState, useEffect } from 'react';
 import { ICategories } from '../interfaces';
 import CategoryItem from '../components/CategoryItem';
 import { SliderContainer } from '../components/styles/Container.styled';
-
-const StyledSlider = styled(Slider)`
-  .slick-next,
-  .slick-prev {
-    width: 50px;
-    height: 50px;
-    background-color: orange !important;
-    border-radius: 50%;
-    z-index: 99999;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-  }
-`;
+import { StyledSlider } from '../components/styles/Slider.styled';
 
 const CategorySlider = (): JSX.Element => {
   const [categories, setCategories] = useState<ICategories[]>([]);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { Container, Logo, Form } from './styles/NavBar.styled';
 import logo from '../assets/images/logo.png';
 import { AiOutlineSearch } from 'react-icons/ai';
@@ -20,9 +20,9 @@ const NavBar = ({ setRecipeSearch }: INavBar) => {
 
   return (
     <Container>
-      <a href="/">
+      <Link to="/">
         <Logo src={logo} alt="logo" />
-      </a>
+      </Link>
 
       <Form onSubmit={handleSubmit} action="/search/">
         <input type="text" id="searchInput" placeholder="Find a recipe" />

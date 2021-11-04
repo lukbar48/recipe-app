@@ -33,6 +33,11 @@ export const CategoryContainer = styled.div`
     margin: 40px 0 20px;
     font-size: 3rem;
   }
+  @media (max-width: ${({theme}) => theme.size.tablet}) {
+    h1 {
+      font-size: 2.3rem;
+    }
+  };
 `;
 
 export const CategoryItemsContainer = styled.div`
