@@ -5,10 +5,7 @@ import {
   FilterForm,
   FilterFormItems,
 } from '../components/styles/Filter.styled';
-
-interface IFilter {
-  setFilterCategories(filter: string[]): void;
-}
+import { IFilter } from '../interfaces';
 
 const Filter = ({ setFilterCategories }: IFilter) => {
   const [allCategories, setAllCategories] = useState([]);
@@ -19,12 +16,10 @@ const Filter = ({ setFilterCategories }: IFilter) => {
     setFilterCategories(filter);
   };
 
-  const handleSubmitInput = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    item: any
-  ) => {
+  const handleSubmitInput = (item: any) => {
     const { strArea } = item;
-    setFilter([...filter, strArea]);
+    const removeDuplicatesCategories = [...new Set([...filter, strArea])];
+    setFilter(removeDuplicatesCategories);
   };
 
   useEffect(() => {
@@ -42,7 +37,6 @@ const Filter = ({ setFilterCategories }: IFilter) => {
     fetchCategories();
   }, []);
 
-
   return (
     <FilterContainer>
       <FilterForm onSubmit={handleSubmit}>
@@ -57,7 +51,7 @@ const Filter = ({ setFilterCategories }: IFilter) => {
                   id={strArea}
                   name="interest"
                   value={strArea}
-                  onChange={(e) => handleSubmitInput(e, { strArea })}
+                  onChange={() => handleSubmitInput({ strArea })}
                 />
               </div>
             );

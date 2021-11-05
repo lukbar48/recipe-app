@@ -12,14 +12,16 @@ const GetRecipes = ({
   recipeSearch,
 }: {
   recipeSearch: string;
-}): JSX.Element => {
+}) => {
   const [recipes, setRecipes] = useState<IRecipes[]>([]);
+  const [copyRecipes, setCopyRecipes] = useState<IRecipes[]>([]);
   const [loading, setLoading] = useState(true);
   const [filterCategories, setFilterCategories] = useState<string[]>([]);
   const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
     setRecipes([]);
+    setCopyRecipes([])
     setLoading(true);
 
     const fetchRecipes = async (): Promise<void> => {
@@ -36,6 +38,7 @@ const GetRecipes = ({
         const data = await result.json();
         setTimeout(() => {
           setRecipes(data.meals);
+          setCopyRecipes(data.meals)
           setLoading(false);
         }, 500);
       } catch (error) {
@@ -51,11 +54,9 @@ const GetRecipes = ({
       let filterAllCategories = recipes.filter(
         (recipe) => recipe.strArea === filterCategories[i]
       );
-      const removeArray = filterAllCategories.flat()
-      filterAllCategories.length && filteredRecipes.push(removeArray);
+      filterAllCategories.length && filteredRecipes.push(filterAllCategories.flat());
     }
-    filteredRecipes = filteredRecipes.flat()
-    setRecipes(filteredRecipes)
+    setCopyRecipes(filteredRecipes.flat())
   }, [filterCategories]);
 
   return (
@@ -72,7 +73,7 @@ const GetRecipes = ({
           <>
             {!id && <Filter setFilterCategories={setFilterCategories} />}
             <RecipesItemsContainer>
-              {recipes.map((recipe) => {
+              {copyRecipes.map((recipe) => {
                 return <RecipeBox key={recipe.idMeal} {...recipe} />;
               })}
             </RecipesItemsContainer>{' '}

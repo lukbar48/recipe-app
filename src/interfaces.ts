@@ -28,3 +28,7 @@ export interface IIngredients {
 export interface INavBar {
   setRecipeSearch: React.Dispatch<React.SetStateAction<string>>;
 }
+
+export interface IFilter {
+  setFilterCategories(filter: string[]): void;
+}
